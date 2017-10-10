@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 1225188511}
   - component: {fileID: 1225188510}
   m_Layer: 0
-  m_Name: Demo Manager
+  m_Name: Scene Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,6 +673,12 @@ MonoBehaviour:
   cameraRotationTransform: {fileID: 1991127396}
   cameraTranslationTransform: {fileID: 1650797694}
   cameraLookAtPosition: {x: 0, y: 1.5, z: 0}
+  targetCameraPosition: {x: 0, y: 0, z: 0}
+  targetCameraRotation: {x: 0, y: 0, z: 0}
+  cameraPositionStart: {x: 0, y: 0, z: 0}
+  cameraRotationStart: {x: 0, y: 0, z: 0}
+  input: {x: 0, y: 0}
+  cameraRotation: {x: 0, y: 0, z: 0}
   cameraMoveAmount: 2
   cameraRotateAmount: 2
   cameraMoveSpeed: 12
