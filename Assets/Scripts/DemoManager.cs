@@ -53,7 +53,7 @@ namespace MirzaBeig
 
                 public Vector3 cameraLookAtPosition = new Vector3(0.0f, 3.0f, 0.0f);
 
-                public FollowMouse mouse;
+                //public FollowMouse mouse;
 
                 Vector3 targetCameraPosition;
                 Vector3 targetCameraRotation;
@@ -93,11 +93,11 @@ namespace MirzaBeig
                 public Toggle lightingToggle;
                 public Toggle advancedRenderingToggle;
 
-                Toggle[] levelToggles;
+                //Toggle[] levelToggles;
                 public ToggleGroup levelTogglesContainer;
 
-                public LoopingParticleSystemsManager loopingParticleSystems;
-                public OneshotParticleSystemsManager oneshotParticleSystems;
+                //public LoopingParticleSystemsManager loopingParticleSystems;
+                //public OneshotParticleSystemsManager oneshotParticleSystems;
 
                 public Text particleCountText;
                 public Text currentParticleSystemText;
@@ -272,7 +272,7 @@ namespace MirzaBeig
                 {
                     if (toggle.isOn)
                     {
-                        setLevel((Level)System.Array.IndexOf(levelToggles, toggle));
+                        //setLevel((Level)System.Array.IndexOf(levelToggles, toggle));
                     }
                 }
 
@@ -317,7 +317,7 @@ namespace MirzaBeig
                         // If turning off, also disable lighting automatically.
 
                         lightingToggle.isOn = false;
-                        mouse.gameObject.SetActive(false);
+                        //mouse.gameObject.SetActive(false);
                     }
 
                     for (int i = 0; i < mainCameraPostEffects.Length; i++)
