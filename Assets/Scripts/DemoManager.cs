@@ -4,7 +4,6 @@
 // =================================
 
 using UnityEngine;
-using UnityEngine.UI;
 
 // =================================	
 // Define namespace.
@@ -84,29 +83,6 @@ namespace MirzaBeig
                 public bool lighting = true;
                 public bool advancedRendering = true;
 
-                public Toggle frontFacingCameraModeToggle;
-                public Toggle interactiveCameraModeToggle;
-
-                public Toggle loopingParticleModeToggle;
-                public Toggle oneshotParticleModeToggle;
-
-                public Toggle lightingToggle;
-                public Toggle advancedRenderingToggle;
-
-                //Toggle[] levelToggles;
-                public ToggleGroup levelTogglesContainer;
-
-                //public LoopingParticleSystemsManager loopingParticleSystems;
-                //public OneshotParticleSystemsManager oneshotParticleSystems;
-
-                public Text particleCountText;
-                public Text currentParticleSystemText;
-
-                public Text particleSpawnInstructionText;
-
-                public Slider timeScaleSlider;
-                public Text timeScaleSliderValueText;
-
                 public Camera UICamera;
                 public Camera mainCamera;
 
@@ -118,16 +94,6 @@ namespace MirzaBeig
                 // Functions.
                 // =================================
 
-                // ...
-
-                /*void Awake()
-                {
-                    //loopingParticleSystems.init();
-                    //oneshotParticleSystems.init();
-                }*/
-
-                // ...
-
                 void Start()
                 {
                     // ...
@@ -137,117 +103,10 @@ namespace MirzaBeig
 
                     resetCameraTransformTargets();
 
-                    // ...
-
-                    /*switch (particleMode)
-                    {
-                        case ParticleMode.looping:
-                            {
-                                setToPerpetualParticleMode(true);
-
-                                loopingParticleModeToggle.isOn = true;
-                                oneshotParticleModeToggle.isOn = false;
-
-                                break;
-                            }
-                        case ParticleMode.oneshot:
-                            {
-                                setToInstancedParticleMode(true);
-
-                                loopingParticleModeToggle.isOn = false;
-                                oneshotParticleModeToggle.isOn = true;
-
-                                break;
-                            }
-                        default:
-                            {
-                                print("Unknown case.");
-                                break;
-                            }
-                    }*/
-
-                    // ...
-
                     setLighting(lighting);
                     setAdvancedRendering(advancedRendering);
 
-                    //lightingToggle.isOn = lighting;
-                    //advancedRenderingToggle.isOn = advancedRendering;
-
-                    // ...
-
-                    //levelToggles = levelTogglesContainer.GetComponentsInChildren<Toggle>(true);
-
-                    /*for (int i = 0; i < levels.Length; i++)
-                    {
-                        // Toggle's OnValueChanged handles
-                        // level state. No need to SetActive().
-
-                        if (i == (int)currentLevel)
-                        {
-                            levels[i].SetActive(true);
-                            levelToggles[i].isOn = true;
-                        }
-                        else
-                        {
-                            levels[i].SetActive(false);
-                            levelToggles[i].isOn = false;
-                        }
-                    }*/
-
-                    // ...
-
-                    //updateCurrentParticleSystemNameText();
-                    //timeScaleSlider.onValueChanged.AddListener(onTimeScaleSliderValueChanged);
-
-                    //onTimeScaleSliderValueChanged(timeScaleSlider.value);
                 }
-
-                // ...
-
-                /*public void onTimeScaleSliderValueChanged(float value)
-                {
-                    Time.timeScale = value;
-                    timeScaleSliderValueText.text = value.ToString("0.00");
-                }*/
-
-                // ...
-
-               /* public void setToPerpetualParticleMode(bool set)
-                {
-                    if (set)
-                    {
-                        oneshotParticleSystems.clear();
-
-                        loopingParticleSystems.gameObject.SetActive(true);
-                        oneshotParticleSystems.gameObject.SetActive(false);
-
-                        particleSpawnInstructionText.gameObject.SetActive(false);
-
-                        particleMode = ParticleMode.looping;
-
-                        updateCurrentParticleSystemNameText();
-                    }
-                }*/
-
-                // ...
-
-                /*public void setToInstancedParticleMode(bool set)
-                {
-                    if (set)
-                    {
-                        loopingParticleSystems.gameObject.SetActive(false);
-                        oneshotParticleSystems.gameObject.SetActive(true);
-
-                        particleSpawnInstructionText.gameObject.SetActive(true);
-
-                        particleMode = ParticleMode.oneshot;
-
-                        updateCurrentParticleSystemNameText();
-                    }
-                }*/
-
-                // ...
 
                 public void setLevel(Level level)
                 {
@@ -266,24 +125,9 @@ namespace MirzaBeig
                     currentLevel = level;
                 }
 
-                // ...
-
-                public void setLevelFromToggle(Toggle toggle)
-                {
-                    if (toggle.isOn)
-                    {
-                        //setLevel((Level)System.Array.IndexOf(levelToggles, toggle));
-                    }
-                }
-
-                // ...
-
                 public void setLighting(bool value)
                 {
                     lighting = value;
-
-                    //loopingParticleSystems.setLights(value);
-                    //oneshotParticleSystems.setLights(value);
                 }
 
                 // ...
@@ -292,20 +136,12 @@ namespace MirzaBeig
                 {
                     advancedRendering = value;
 
-                    //postEffectsCamera.gameObject.SetActive(value);
-
-                    //UICamera.hdr = value;
-                    //mainCamera.hdr = value;
-
                     if (value)
                     {
                         QualitySettings.SetQualityLevel(32, true);
 
-                        //UICamera.renderingPath = RenderingPath.UsePlayerSettings;
                         mainCamera.renderingPath = RenderingPath.UsePlayerSettings;
 
-                        //lightingToggle.isOn = true;
-                        //mouse.gameObject.SetActive(true);
                     }
                     else
                     {
@@ -314,10 +150,6 @@ namespace MirzaBeig
                         UICamera.renderingPath = RenderingPath.VertexLit;
                         mainCamera.renderingPath = RenderingPath.VertexLit;
 
-                        // If turning off, also disable lighting automatically.
-
-                        lightingToggle.isOn = false;
-                        //mouse.gameObject.SetActive(false);
                     }
 
                     for (int i = 0; i < mainCameraPostEffects.Length; i++)
@@ -376,52 +208,6 @@ namespace MirzaBeig
 
                     cameraTranslationTransform.LookAt(cameraLookAtPosition);
 
-                    // Scroll through systems.
-
-                    /*if (Input.GetAxis("Mouse ScrollWheel") < 0)
-                    {
-                        next();
-                    }
-                    else if (Input.GetAxis("Mouse ScrollWheel") > 0)
-                    {
-                        previous();
-                    }*/
-
-                    // Random prefab while holding key.
-
-                    /*else if (Input.GetKey(KeyCode.R))
-                    {
-                        if (particleMode == ParticleMode.oneshot)
-                        {
-                            oneshotParticleSystems.randomize();
-                            updateCurrentParticleSystemNameText();
-
-                            // If also holding down, auto-spawn at random point.
-
-                            if (Input.GetKey(KeyCode.T))
-                            {
-                                //oneshotParticleSystems.instantiateParticlePrefabRandom();
-                            }
-                        }
-                    }*/
-
-                    // Left-click to spawn once.
-                    // Right-click to continously spawn.
-
-                    /*if (particleMode == ParticleMode.oneshot)
-                    {
-                        Vector3 mousePosition = Input.mousePosition;
-
-                        if (Input.GetMouseButtonDown(0))
-                        {
-                            oneshotParticleSystems.instantiateParticlePrefab(mousePosition, mouse.distanceFromCamera);
-                        }
-                        if (Input.GetMouseButton(1))
-                        {
-                            oneshotParticleSystems.instantiateParticlePrefab(mousePosition, mouse.distanceFromCamera);
-                        }
-                    }*/
-
                     // Reset.
 
                     if (Input.GetKeyDown(KeyCode.R))
@@ -430,75 +216,11 @@ namespace MirzaBeig
                     }
                 }
 
-                // ...
-
-                /*void LateUpdate()
-                {
-                    // Update particle count display.
-
-                    particleCountText.text = "PARTICLE COUNT: ";
-
-                    if (particleMode == ParticleMode.looping)
-                    {
-                        particleCountText.text += loopingParticleSystems.getParticleCount().ToString();
-                    }
-                    else if (particleMode == ParticleMode.oneshot)
-                    {
-                        particleCountText.text += oneshotParticleSystems.getParticleCount().ToString();
-                    }
-                }*/
-
-                // ...
-
                 void resetCameraTransformTargets()
                 {
                     targetCameraPosition = cameraPositionStart;
                     targetCameraRotation = cameraRotationStart;
                 }
-
-                // ...
-
-                /*void updateCurrentParticleSystemNameText()
-                {
-                    if (particleMode == ParticleMode.looping)
-                    {
-                        currentParticleSystemText.text = loopingParticleSystems.getCurrentPrefabName(true);
-                    }
-                    else if (particleMode == ParticleMode.oneshot)
-                    {
-                        currentParticleSystemText.text = oneshotParticleSystems.getCurrentPrefabName(true);
-                    }
-                }*/
-
-                // ...
-
-                /*public void next()
-                {
-                    if (particleMode == ParticleMode.looping)
-                    {
-                        loopingParticleSystems.next();
-                    }
-                    else if (particleMode == ParticleMode.oneshot)
-                    {
-                        oneshotParticleSystems.next();
-                    }
-
-                    updateCurrentParticleSystemNameText();
-                }*/
-
-                /*public void previous()
-                {
-                    if (particleMode == ParticleMode.looping)
-                    {
-                        loopingParticleSystems.previous();
-                    }
-                    else if (particleMode == ParticleMode.oneshot)
-                    {
-                        oneshotParticleSystems.previous();
-                    }
-
-                    updateCurrentParticleSystemNameText();
-                }*/
 
                 // =================================	
                 // End functions.

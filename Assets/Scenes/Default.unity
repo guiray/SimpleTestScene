@@ -685,18 +685,6 @@ MonoBehaviour:
   particleMode: 0
   lighting: 1
   advancedRendering: 1
-  frontFacingCameraModeToggle: {fileID: 0}
-  interactiveCameraModeToggle: {fileID: 0}
-  loopingParticleModeToggle: {fileID: 0}
-  oneshotParticleModeToggle: {fileID: 0}
-  lightingToggle: {fileID: 0}
-  advancedRenderingToggle: {fileID: 0}
-  levelTogglesContainer: {fileID: 0}
-  particleCountText: {fileID: 0}
-  currentParticleSystemText: {fileID: 0}
-  particleSpawnInstructionText: {fileID: 0}
-  timeScaleSlider: {fileID: 0}
-  timeScaleSliderValueText: {fileID: 0}
   UICamera: {fileID: 0}
   mainCamera: {fileID: 26444307}
   postEffectsCamera: {fileID: 0}
@@ -1157,7 +1145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1788681950
 Transform:
   m_ObjectHideFlags: 0
